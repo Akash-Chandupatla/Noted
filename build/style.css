@@ -1,0 +1,104 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic);
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  /* sidebar Notes list section */
+  .notesList {
+    @apply flex-grow text-start;
+  }
+  .note {
+    @apply my-4 rounded-md bg-white p-2 px-4 shadow;
+  }
+  .sbarNlistTitle {
+    @apply py-2 font-bold text-green-800;
+  }
+  .sbarNlistContent {
+    @apply line-clamp-1 py-1;
+  }
+  .noteView {
+    @apply flex h-full w-full flex-col justify-start;
+  }
+  .noteViewHeading {
+    @apply flex h-20 items-center justify-between p-4;
+  }
+  .noteViewHeading h2 {
+    @apply text-4xl font-bold underline;
+  }
+  .btnsGroup {
+    @apply flex flex-row text-center;
+  }
+  .btnsGroup button {
+    @apply text-center;
+  }
+  .newTask {
+    @apply m-4 h-10 w-60 rounded-lg bg-indigo-700 px-6 text-lg font-bold text-white shadow-md;
+  }
+  .deleteNote {
+    @apply m-4 h-10 w-60 rounded-lg bg-red-500 px-6 text-lg font-bold text-white shadow-md;
+  }
+  .noteViewContent {
+    @apply m-4 flex h-[calc(100vh-120px)] flex-col items-start rounded-lg bg-white p-4;
+  }
+  .contentDesc {
+    @apply py-4 text-2xl;
+  }
+  .taskListTitle {
+    @apply py-8 text-xl font-semibold text-teal-700 underline;
+  }
+  .nvBg {
+    @apply absolute z-10 hidden h-full w-full bg-black bg-opacity-85 opacity-0 transition-opacity duration-200;
+  }
+  .tasks {
+    @apply absolute z-20 flex flex-col items-center justify-center gap-6;
+  }
+  #addTask {
+    @apply rounded-md border-b-4 border-b-black p-4 text-lg outline-none;
+  }
+  .createTask {
+    @apply m-4 h-10 w-60 rounded-lg bg-indigo-700 px-6 text-lg font-bold text-white shadow-md;
+  }
+  .activeTasks {
+    @apply flex flex-col gap-4 p-8;
+  }
+  .currentTask {
+    @apply flex items-center gap-2 text-xl;
+  }
+  .checkBox {
+    @apply relative h-4 w-4 cursor-pointer appearance-none rounded-full border-2 border-gray-400 p-1;
+  }
+  .currentTask label {
+    @apply text-xl;
+  }
+  /* .hrSeparator {
+    @apply h-[2px] w-full rounded-lg border-none bg-orange-800 outline-none;
+  } */
+  .completedTask {
+    @apply flex flex-col gap-4 p-8;
+  }
+  .finishTask {
+    @apply flex items-center gap-2 text-xl;
+  }
+  .finishTask label {
+    @apply text-xl;
+  }
+}
+
+/* 
+noteViewHeading - note-view-heading
+btnsGroup - note-view-btns
+newTask - new-task
+deleteNote - delete-note
+noteViewContent - note-view-content
+rootTaskList - task-manager
+taskListTitle - task-list-title
+activeTasks - ongoing-tasks
+hrSeparator - hr-tag
+completedTask - completed-task
+currentTask - curr-task
+checkBox - checkbox
+finishTask - Finish-task
+spanEle - span-check
+*/

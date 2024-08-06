@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Noted | A Note App</title>
+    <link rel="shortcut icon" href="/images/favicon.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="build/style.css" />
+  </head>
+  <body
+    class="flex h-full w-full flex-row bg-lightBeige text-center font-Roboto"
+  >
+    <!-- Sidebar -->
+    <header
+      id="sideBar"
+      class="flex h-screen w-1/6 border-r-4 border-gray-900 bg-mediumYellow p-4"
+    >
+      <div class="flex w-full flex-col justify-between p-4">
+        <!-- Top Section: Logo and Title in the same line -->
+        <div
+          id="headTitle"
+          class="mb-8 flex cursor-pointer items-center justify-center"
+        >
+          <img
+            class="mr-2 h-12"
+            src="/images/LogoM.svg"
+            alt=""
+            width="55rem"
+            height="25rem"
+          />
+          <h1 class="pl-4 text-5xl font-bold">NOTED</h1>
+        </div>
+        <!-- Middle Section: Notes -->
+        <div id="notesList" class="notesList">
+          <!-- <div class="note">
+            <h2 class="sbarNlistTitle">Sample</h2>
+            <p class="sbarNlistContent">Sample description</p>
+          </div> -->
+        </div>
+        <!-- Bottom Section: New Note Button -->
+        <button
+          id="newNote"
+          class="m-auto h-10 w-60 rounded-lg bg-indigo-600 px-6 text-lg font-bold text-white shadow-md transition duration-300 ease-in-out hover:bg-indigo-700"
+        >
+          Create New Note
+        </button>
+      </div>
+    </header>
+
+    <main
+      id="hero"
+      class="relative flex flex-grow flex-col items-center justify-center"
+    >
+      <!-- Background: No Notes found -->
+      <div id="background" class="text-center">
+        <img src="/images/favicon.svg" alt="No Notes" class="mx-auto mb-4" />
+        <h3 class="text-2xl font-semibold">No Notes found</h3>
+        <p class="text-gray-700">Select "New Note" to create notes</p>
+      </div>
+
+      <!-- Background: noteView -->
+      <div id="noteViewBg" class="text-center">
+        <img src="/images/favicon.svg" alt="No Notes" class="mx-auto mb-4" />
+        <h3 class="text-2xl font-semibold">Click on the note to view</h3>
+      </div>
+
+      <!-- Foreground: Create new note -->
+      <div
+        id="foreground"
+        class="createNote flex h-auto w-3/5 flex-col items-center justify-center gap-4 rounded-lg bg-white p-12 shadow-md"
+      >
+        <div class="">
+          <input
+            class="w-full border-b-2 border-b-black p-4 text-lg outline-none"
+            type="text"
+            id="createNoteTitle"
+            placeholder="Enter Note title"
+          />
+        </div>
+        <textarea
+          class="w-full resize-none border-b-2 border-b-black p-4 text-lg outline-none"
+          id="createNoteContent"
+          cols="30"
+          rows="7"
+          placeholder="Enter Note content"
+        ></textarea>
+
+        <div
+          id="foregrdButtons"
+          class="flex flex-row items-center justify-around gap-4 py-6 font-bold"
+        >
+          <div
+            class="cursor-pointer rounded-md bg-orange-700 px-4 py-2 text-center text-lg text-white"
+            id="clearNoteButton"
+          >
+            Clear Note
+          </div>
+          <div
+            class="cursor-pointer rounded-md bg-green-700 px-4 py-2 text-center text-lg text-white"
+            id="createNoteButton"
+          >
+            Create Note
+          </div>
+        </div>
+      </div>
+
+      <!-- Note view -->
+      <div class="noteView"></div>
+      <div class="nvBg"></div>
+
+      <div class="tasks">
+        <input type="text" placeholder="Add Task" id="addTask" size="50" />
+        <button class="createTask">Create task</button>
+      </div>
+    </main>
+
+    <script async src="/build/main.js" type="module"></script>
+  </body>
+</html>
