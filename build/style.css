@@ -67,7 +67,7 @@
     @apply flex items-center gap-2 text-xl;
   }
   .checkBox {
-    @apply relative h-4 w-4 cursor-pointer appearance-none rounded-full border-2 border-gray-400 p-1;
+    @apply relative h-4 w-4 cursor-pointer rounded-md appearance-none border-2 border-red-800 p-1;
   }
   .currentTask label {
     @apply text-xl;
@@ -85,20 +85,3 @@
     @apply text-xl;
   }
 }
-
-/* 
-noteViewHeading - note-view-heading
-btnsGroup - note-view-btns
-newTask - new-task
-deleteNote - delete-note
-noteViewContent - note-view-content
-rootTaskList - task-manager
-taskListTitle - task-list-title
-activeTasks - ongoing-tasks
-hrSeparator - hr-tag
-completedTask - completed-task
-currentTask - curr-task
-checkBox - checkbox
-finishTask - Finish-task
-spanEle - span-check
-*/

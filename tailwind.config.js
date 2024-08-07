@@ -12,7 +12,7 @@ module.exports = {
       },
       // Custom utilities for pseudo-elements
       content: {
-        checkmark: '"\\2714"',
+        checkMark: '"\\1F5F9"',
       },
     },
   },
@@ -20,7 +20,7 @@ module.exports = {
     function ({ addComponents, theme }) {
       addComponents({
         ".spanEle::before": {
-          content: theme("content.checkmark"),
+          content: theme("content.checkMark"),
           color: "green",
           fontWeight: "900",
           fontSize: "1rem",

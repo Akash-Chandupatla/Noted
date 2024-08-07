@@ -591,7 +591,7 @@ video {
 }
 
 .spanEle::before{
-  content: "\2714";
+  content: "\1F5F9";
   color: green;
   font-weight: 900;
   font-size: 1rem;
@@ -674,7 +674,7 @@ video {
   width: 15rem;
   border-radius: 0.5rem;
   --tw-bg-opacity: 1;
-  background-color: rgb(37 99 235 / var(--tw-bg-opacity));
+  background-color: rgb(67 56 202 / var(--tw-bg-opacity));
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   font-size: 1.125rem;
@@ -736,6 +736,20 @@ video {
   text-decoration-line: underline;
 }
 
+.nvBg{
+  position: absolute;
+  z-index: 10;
+  display: none;
+  height: 100%;
+  width: 100%;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+  --tw-bg-opacity: 0.85;
+  opacity: 0;
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 200ms;
+}
+
 .tasks{
   position: absolute;
   z-index: 20;
@@ -747,12 +761,13 @@ video {
 }
 
 #addTask{
+  border-radius: 0.375rem;
   border-bottom-width: 4px;
   --tw-border-opacity: 1;
-  border-color: rgb(0 0 0 / var(--tw-border-opacity));
+  border-bottom-color: rgb(0 0 0 / var(--tw-border-opacity));
+  padding: 1rem;
   font-size: 1.125rem;
   line-height: 1.75rem;
-  font-weight: 600;
   outline: 2px solid transparent;
   outline-offset: 2px;
 }
@@ -763,7 +778,7 @@ video {
   width: 15rem;
   border-radius: 0.5rem;
   --tw-bg-opacity: 1;
-  background-color: rgb(29 78 216 / var(--tw-bg-opacity));
+  background-color: rgb(67 56 202 / var(--tw-bg-opacity));
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   font-size: 1.125rem;
@@ -799,10 +814,10 @@ video {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  border-radius: 9999px;
+  border-radius: 0.375rem;
   border-width: 2px;
   --tw-border-opacity: 1;
-  border-color: rgb(156 163 175 / var(--tw-border-opacity));
+  border-color: rgb(153 27 27 / var(--tw-border-opacity));
   padding: 0.25rem;
 }
 
@@ -2164,6 +2179,11 @@ video {
   background-color: rgb(21 128 61 / var(--tw-bg-opacity));
 }
 
+.bg-indigo-600{
+  --tw-bg-opacity: 1;
+  background-color: rgb(79 70 229 / var(--tw-bg-opacity));
+}
+
 .bg-lightBeige{
   --tw-bg-opacity: 1;
   background-color: rgb(249 243 229 / var(--tw-bg-opacity));
@@ -2177,11 +2197,6 @@ video {
 .bg-orange-700{
   --tw-bg-opacity: 1;
   background-color: rgb(194 65 12 / var(--tw-bg-opacity));
-}
-
-.bg-red-600{
-  --tw-bg-opacity: 1;
-  background-color: rgb(220 38 38 / var(--tw-bg-opacity));
 }
 
 .bg-white{
@@ -2422,11 +2437,6 @@ video {
 
 .text-lg{
   font-size: 1.125rem;
-  line-height: 1.75rem;
-}
-
-.text-xl{
-  font-size: 1.25rem;
   line-height: 1.75rem;
 }
 
@@ -2909,23 +2919,6 @@ video {
   vite: html;
 }
 
-/* 
-noteViewHeading - note-view-heading
-btnsGroup - note-view-btns
-newTask - new-task
-deleteNote - delete-note
-noteViewContent - note-view-content
-rootTaskList - task-manager
-taskListTitle - task-list-title
-activeTasks - ongoing-tasks
-hrSeparator - hr-tag
-completedTask - completed-task
-currentTask - curr-task
-checkBox - checkbox
-finishTask - Finish-task
-spanEle - span-check
-*/
-
 @media (min-width: 640px){
   .sm\:container{
     width: 100%;
@@ -2962,9 +2955,9 @@ spanEle - span-check
   }
 }
 
-.hover\:bg-red-700:hover{
+.hover\:bg-indigo-700:hover{
   --tw-bg-opacity: 1;
-  background-color: rgb(185 28 28 / var(--tw-bg-opacity));
+  background-color: rgb(67 56 202 / var(--tw-bg-opacity));
 }
 
 .hover\:font-bold:hover{
