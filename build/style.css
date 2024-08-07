@@ -28,12 +28,13 @@
     @apply text-4xl font-bold underline;
   }
   .btnsGroup {
-    @apply flex flex-row text-center;
+    @apply flex text-center;
   }
   .btnsGroup button {
     @apply text-center;
   }
-  .newTask {
+  .newTask,
+  .createTask {
     @apply m-4 h-10 w-60 rounded-lg bg-indigo-700 px-6 text-lg font-bold text-white shadow-md;
   }
   .deleteNote {
@@ -57,9 +58,6 @@
   #addTask {
     @apply rounded-md border-b-4 border-b-black p-4 text-lg outline-none;
   }
-  .createTask {
-    @apply m-4 h-10 w-60 rounded-lg bg-indigo-700 px-6 text-lg font-bold text-white shadow-md;
-  }
   .activeTasks {
     @apply flex flex-col gap-4 p-8;
   }
@@ -67,21 +65,16 @@
     @apply flex items-center gap-2 text-xl;
   }
   .checkBox {
-    @apply relative h-4 w-4 cursor-pointer rounded-md appearance-none border-2 border-red-800 p-1;
+    @apply relative h-4 w-4 cursor-pointer appearance-none rounded-md border-2 border-red-800 p-1;
   }
-  .currentTask label {
+  .currentTask label,
+  .finishTask label {
     @apply text-xl;
   }
-  /* .hrSeparator {
-    @apply h-[2px] w-full rounded-lg border-none bg-orange-800 outline-none;
-  } */
   .completedTask {
     @apply flex flex-col gap-4 p-8;
   }
   .finishTask {
     @apply flex items-center gap-2 text-xl;
-  }
-  .finishTask label {
-    @apply text-xl;
   }
 }

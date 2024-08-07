@@ -660,7 +660,6 @@ video {
 
 .btnsGroup{
   display: flex;
-  flex-direction: row;
   text-align: center;
 }
 
@@ -668,7 +667,8 @@ video {
   text-align: center;
 }
 
-.newTask{
+.newTask,
+  .createTask{
   margin: 1rem;
   height: 2.5rem;
   width: 15rem;
@@ -772,25 +772,6 @@ video {
   outline-offset: 2px;
 }
 
-.createTask{
-  margin: 1rem;
-  height: 2.5rem;
-  width: 15rem;
-  border-radius: 0.5rem;
-  --tw-bg-opacity: 1;
-  background-color: rgb(67 56 202 / var(--tw-bg-opacity));
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  font-size: 1.125rem;
-  line-height: 1.75rem;
-  font-weight: 700;
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
 .activeTasks{
   display: flex;
   flex-direction: column;
@@ -821,14 +802,11 @@ video {
   padding: 0.25rem;
 }
 
-.currentTask label{
+.currentTask label,
+  .finishTask label{
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
-
-/* .hrSeparator {
-    @apply h-[2px] w-full rounded-lg border-none bg-orange-800 outline-none;
-  } */
 
 .completedTask{
   display: flex;
@@ -841,11 +819,6 @@ video {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
-.finishTask label{
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
