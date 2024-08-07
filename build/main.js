@@ -138,8 +138,8 @@ let renderNoteToList = (note, index) => {
 };
 
 // View note details
-let noteViewer = (note, index) => {
-  // Top bar heading in Viewer panel
+// Function to create the top bar in the note viewer
+function createViewerTopBar(note, index) {
   let viewerTopBar = document.createElement("div");
   viewerTopBar.className = "noteViewHeading";
 
@@ -160,7 +160,36 @@ let noteViewer = (note, index) => {
   btnsGroup.append(newTaskBtn, deleteNoteBtn);
   viewerTopBar.append(viewerHeading, btnsGroup);
 
-  // Content in Viewer panel
+  // Attach event listeners
+  attachTopBarEventListeners(newTaskBtn, deleteNoteBtn, index);
+
+  return viewerTopBar;
+}
+
+// Function to attach event listeners to the top bar buttons
+function attachTopBarEventListeners(newTaskBtn, deleteNoteBtn, index) {
+  // Event listener for creating a new task
+  newTaskBtn.addEventListener("click", () => {
+    noteView.style.display = "flex";
+    noteView.style.zIndex = "1";
+    nvBg.style.display = "flex";
+    nvBg.style.opacity = "1";
+    tasks.style.display = "flex";
+    addTask.focus();
+  });
+
+  // Event listener for deleting a note
+  deleteNoteBtn.addEventListener("click", () => {
+    notes.splice(index, 1);
+    addToLocalStorage();
+    notesList.innerHTML = "";
+    renderNotesFromLS();
+    viewToggler();
+  });
+}
+
+// Function to create the content section in the note viewer
+function createViewerContent(note) {
   let viewerContent = document.createElement("div");
   viewerContent.className = "noteViewContent";
 
@@ -170,11 +199,18 @@ let noteViewer = (note, index) => {
 
   viewerContent.append(contentDesc);
 
-  // Root div for tasks
+  let rootTaskList = createTaskList(note.tasks);
+
+  viewerContent.append(rootTaskList);
+
+  return viewerContent;
+}
+
+// Function to create the task list section
+function createTaskList(tasks) {
   let rootTaskList = document.createElement("div");
   rootTaskList.className = "rootTaskList";
 
-  // Task list heading
   let tasksListHeading = document.createElement("p");
   tasksListHeading.textContent = "List of Tasks";
   tasksListHeading.className = "taskListTitle";
@@ -183,13 +219,8 @@ let noteViewer = (note, index) => {
   activeTlHeading.textContent = "Pending Tasks";
   activeTlHeading.style.textDecoration = "underline";
 
-  // Div that contains the Pending Tasks tasks
   let activeTasks = document.createElement("div");
   activeTasks.className = "activeTasks";
-
-  // HR TAG separating the Pending Tasks and completed tasks
-  // let hrSeparator = document.createElement("hr");
-  // hrSeparator.className = "hrSeparator";
 
   let completedTaskListHeading = document.createElement("p");
   completedTaskListHeading.textContent = "Completed Tasks";
@@ -197,7 +228,6 @@ let noteViewer = (note, index) => {
   completedTaskListHeading.style.paddingTop = "1rem";
   completedTaskListHeading.style.paddingLeft = "1rem";
 
-  // DIV that contains the completed tasks
   let completedTask = document.createElement("div");
   completedTask.className = "completedTask";
 
@@ -205,38 +235,25 @@ let noteViewer = (note, index) => {
     tasksListHeading,
     activeTlHeading,
     activeTasks,
-    // hrSeparator,
     completedTaskListHeading,
     completedTask,
   );
 
-  viewerContent.append(rootTaskList);
+  tasks.forEach((task) => {
+    tasksManager(task, activeTasks, completedTask);
+  });
+
+  return rootTaskList;
+}
+
+// Main function to view a note
+let noteViewer = (note, index) => {
+  let viewerTopBar = createViewerTopBar(note, index);
+  let viewerContent = createViewerContent(note);
+
+  noteView.innerHTML = ""; // Clear previous content
   noteView.append(viewerTopBar, viewerContent);
 
-  // Event listener for creating a new task
-  newTaskBtn.addEventListener("click", () => {
-    noteView.style.display = "flex";
-    noteView.style.zIndex = "1";
-
-    nvBg.style.display = "flex";
-    nvBg.style.opacity = "1";
-
-    tasks.style.display = "flex";
-    addTask.focus();
-  });
-
-  // Event listener for deleting a note
-  deleteNoteBtn.addEventListener("click", () => {
-    notes.splice(index, 1);
-    addToLocalStorage();
-    let localNotes = JSON.parse(localStorage.getItem("Notes"));
-    localNotes.splice(index, 1);
-    notesList.innerHTML = "";
-    renderNotesFromLS();
-    viewToggler();
-  });
-
-  // Event listener for creating a task
   createTask.onclick = function () {
     if (addTask.value !== "") {
       let task = {
@@ -247,16 +264,15 @@ let noteViewer = (note, index) => {
       notes[index].tasks.push(task);
       addToLocalStorage();
       addTask.value = "";
-      tasksManager(task, activeTasks, completedTask);
+      tasksManager(
+        task,
+        viewerContent.querySelector(".activeTasks"),
+        viewerContent.querySelector(".completedTask"),
+      );
       nvBg.style.display = "none";
       tasks.style.display = "none";
     }
   };
-
-  // Render each task on the screen
-  note.tasks.forEach((task) => {
-    tasksManager(task, activeTasks, completedTask);
-  });
 };
 
 // Event listener for hiding the new task creation view
